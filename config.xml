@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.soft02.empathy" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>empathyy</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
@@ -87,5 +87,15 @@
     <plugin name="cordova-plugin-googlemaps" spec="^2.4.6">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAOcIAwzRrTah8yn2ppywC54MzQDWJGCPo" />
     </plugin>
-    <engine name="android" spec="^7.1.1" />
+    <plugin name="cordova-plugin-facebook4" spec="3.0.0">
+        <variable name="APP_ID" value="1937934406295078" />
+        <variable name="APP_NAME" value="empathy" />
+        <variable name="FACEBOOK_ANDROID_SDK_VERSION" value="4.36.0" />
+    </plugin>
+    <plugin name="cordova-plugin-googleplus" spec="5.0.0">
+        <variable name="WEB_APPLICATION_CLIENT_ID" value="226772164225-3inootcja60tsluaca89m0ic3bu08r36.apps.googleusercontent.com" />
+        <variable name="REVERSED_CLIENT_ID" value="com.googleusercontent.apps.226772164225-3inootcja60tsluaca89m0ic3bu08r36" />
+        <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
+    </plugin>
+    <engine name="android" spec="6.4.0" />
 </widget>

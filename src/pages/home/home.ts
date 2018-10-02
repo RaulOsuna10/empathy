@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+
 import { Camera, CameraOptions } from '@ionic-native/camera'; 
 declare var google:any;
 @Component({
@@ -33,7 +34,8 @@ export class HomePage {
   ionViewDidLoad(){
    this.showMap();
   }
-  CenterControl(controlDiv, map) {
+  //boton en el mapa para publicar evento
+  eventControl(controlDiv, map) {
 
     // Set CSS for the control border.
     var controlUI = document.createElement('div');
@@ -41,13 +43,14 @@ export class HomePage {
     controlUI.classList.add('btn-primary');
     controlUI.classList.add('btn-lg');
     controlUI.style.opacity = '0.7';
+    controlUI.classList.add('mapButton');
     controlDiv.appendChild(controlUI);
 
     // Set CSS for the control interior.
       var controlText = document.createElement('div');
     controlText.classList.add('fa');
     controlText.classList.add('fa-plus-circle');
-    controlText.classList.add('fa-4x');
+    controlText.classList.add('fa-3x');
     controlUI.appendChild(controlText);
 
     // Setup the click event listeners: simply set the map to Chicago.
@@ -71,11 +74,11 @@ export class HomePage {
 
   }
   showMap(){
-    const location = new google.maps.LatLng(51,30);
+    const location = new google.maps.LatLng(25.7667,-108.9667);
      //opciones de mapaa
      const options = {
       center:location,
-      zoom:11,
+      zoom:12,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       streetViewControl:false,
       zoomControl:false,
@@ -84,16 +87,16 @@ export class HomePage {
      }
 
      this.map = new google.maps.Map(this.mapRef.nativeElement, options);
-
+     //crea el boton para publicar evento
      var centerControlDiv = document.createElement('div');
-     console.log(centerControlDiv)
-     this.CenterControl(centerControlDiv, this.map);
-     this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv );
+     this.eventControl(centerControlDiv, this.map);
+     //INCRUSTA LOS BOTONES ENCIMA DEL MAPA
+     this.map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(centerControlDiv);
   }
   constructor(public navCtrl: NavController,private camera: Camera) {
   }
-  
-
-
+  openLoginPage(){
+    this.navCtrl.push(LoginPage);
+  }
 
 }
