@@ -29,7 +29,7 @@ import { Camera } from '@ionic-native/camera';
     MyApp,
     AboutPage,
     ContactPage,
-    HomePage,
+    HomePage, 
     TabsPage
   ],
   providers: [
