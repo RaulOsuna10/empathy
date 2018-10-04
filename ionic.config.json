@@ -1,0 +1,7 @@
+{
+  "name": "Carruselionic",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
